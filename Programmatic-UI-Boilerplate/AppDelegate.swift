@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,12 +9,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
-        let container = createContainer(
-            arguments: ProcessInfo.processInfo.arguments,
-            environment: ProcessInfo.processInfo.environment
-        )
-        let repository = container.resolve(ExampleRepositoryProtocol.self)!
-        let vc = ViewController(repository: repository)
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        let vc = ViewController()
         let navigationController = UINavigationController(rootViewController: vc)
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = navigationController

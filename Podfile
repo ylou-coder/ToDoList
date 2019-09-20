@@ -3,12 +3,14 @@
 
 target 'Programmatic-UI-Boilerplate' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+#  use_frameworks!
 
   # Pods for Programmatic-UI-Boilerplate
   pod 'SnapKit', '~> 4.0.0'
   pod 'SwiftLint'
   pod 'Swinject'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'Programmatic-UI-BoilerplateTests' do
     inherit! :search_paths
