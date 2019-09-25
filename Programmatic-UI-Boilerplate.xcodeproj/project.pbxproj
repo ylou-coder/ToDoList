@@ -12,6 +12,8 @@
 		4B2391622331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
 		4B2391632331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
 		4B2391642331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
+		4B239166233A93D00058B33A /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B239165233A93CD0058B33A /* CheckBox.swift */; };
+		4BD45F76233ACE01002CA66C /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD45F75233ACE01002CA66C /* ToDoItem.swift */; };
 		794411B8DC224183DB451A19 /* libPods-Programmatic-UI-Boilerplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9AF2A5054866D1AE138D4 /* libPods-Programmatic-UI-Boilerplate.a */; };
 		C392418D68E83747CE1FCA7D /* libPods-Programmatic-UI-BoilerplateUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8860DD4601D217BE57162ABB /* libPods-Programmatic-UI-BoilerplateUITests.a */; };
 		C934E60E2131CBE1007BB1D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C934E60D2131CBE1007BB1D1 /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 		33071F65D409417FA15521F5 /* .circleci */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .circleci; sourceTree = "<group>"; };
 		33071FF08A5FB10108FC8F72 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		4B2391612331C0290058B33A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4B239165233A93CD0058B33A /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		4BD45F75233ACE01002CA66C /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		4DC5743B6CFE966B43165248 /* Pods-Programmatic-UI-BoilerplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Programmatic-UI-BoilerplateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Programmatic-UI-BoilerplateTests/Pods-Programmatic-UI-BoilerplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		8860DD4601D217BE57162ABB /* libPods-Programmatic-UI-BoilerplateUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Programmatic-UI-BoilerplateUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EBCCA5E8D334E714934D273 /* Pods-Programmatic-UI-Boilerplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Programmatic-UI-Boilerplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Programmatic-UI-Boilerplate/Pods-Programmatic-UI-Boilerplate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4BD45F74233ACDD0002CA66C /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				4BD45F75233ACE01002CA66C /* ToDoItem.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
 		7A6C4C570D682DCBE99760C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +167,7 @@
 		C934E60C2131CBE1007BB1D1 /* Programmatic-UI-Boilerplate */ = {
 			isa = PBXGroup;
 			children = (
+				4BD45F74233ACDD0002CA66C /* Structs */,
 				4B2391612331C0290058B33A /* GoogleService-Info.plist */,
 				C934E6142131CBE3007BB1D1 /* Assets.xcassets */,
 				C934E60D2131CBE1007BB1D1 /* AppDelegate.swift */,
@@ -163,6 +176,7 @@
 				C934E6192131CBE3007BB1D1 /* Info.plist */,
 				330713CFD82BE920A858B39B /* Services */,
 				330716C72F3EB70F08E794F8 /* Container.swift */,
+				4B239165233A93CD0058B33A /* CheckBox.swift */,
 			);
 			path = "Programmatic-UI-Boilerplate";
 			sourceTree = "<group>";
@@ -413,8 +427,10 @@
 			files = (
 				C934E6102131CBE1007BB1D1 /* ViewController.swift in Sources */,
 				C934E60E2131CBE1007BB1D1 /* AppDelegate.swift in Sources */,
+				4BD45F76233ACE01002CA66C /* ToDoItem.swift in Sources */,
 				33071F91889F81E0DF8C0C57 /* ExampleRepository.swift in Sources */,
 				330719541AF557C5E67013B3 /* Container.swift in Sources */,
+				4B239166233A93D00058B33A /* CheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
