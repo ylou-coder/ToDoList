@@ -4,3 +4,4 @@ fastlane/report.xml
 outputs/
 !outputs/.keep
 Pods/
+**/GoogleService-Info.plist
