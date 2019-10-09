@@ -11,6 +11,7 @@ target 'Programmatic-UI-Boilerplate' do
   pod 'Swinject'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'JTAppleCalendar'
 
   target 'Programmatic-UI-BoilerplateTests' do
     inherit! :search_paths

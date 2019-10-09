@@ -124,13 +124,12 @@ open class CheckBox: UIControl {
             shapePath = UIBezierPath.init(ovalIn: newRect)
         }
         
+        //Set the background color when checked 
         if(self.isChecked) {
             context.setFillColor(checkboxBackgroundColor.cgColor);
             shapePath.fill()
         }
 
-        
-            
         context.addPath(shapePath.cgPath)
         context.strokePath()
         context.fillPath()

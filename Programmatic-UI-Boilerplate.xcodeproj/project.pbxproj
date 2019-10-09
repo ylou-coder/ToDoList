@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		330719541AF557C5E67013B3 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330716C72F3EB70F08E794F8 /* Container.swift */; };
 		33071F91889F81E0DF8C0C57 /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33071654CF3AD21F59CAE465 /* ExampleRepository.swift */; };
+		4B1079492346BE4C00D21EB5 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1079482346BE4C00D21EB5 /* CalendarController.swift */; };
 		4B2391622331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
 		4B2391632331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
 		4B2391642331C02A0058B33A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B2391612331C0290058B33A /* GoogleService-Info.plist */; };
@@ -55,6 +56,7 @@
 		33071AF8F42DDC2AE2A5D2AE /* outputs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = outputs; sourceTree = "<group>"; };
 		33071F65D409417FA15521F5 /* .circleci */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .circleci; sourceTree = "<group>"; };
 		33071FF08A5FB10108FC8F72 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		4B1079482346BE4C00D21EB5 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		4B2391612331C0290058B33A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B239165233A93CD0058B33A /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		4BD45F75233ACE01002CA66C /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				330713CFD82BE920A858B39B /* Services */,
 				330716C72F3EB70F08E794F8 /* Container.swift */,
 				4B239165233A93CD0058B33A /* CheckBox.swift */,
+				4B1079482346BE4C00D21EB5 /* CalendarController.swift */,
 			);
 			path = "Programmatic-UI-Boilerplate";
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				33071F91889F81E0DF8C0C57 /* ExampleRepository.swift in Sources */,
 				330719541AF557C5E67013B3 /* Container.swift in Sources */,
 				4B239166233A93D00058B33A /* CheckBox.swift in Sources */,
+				4B1079492346BE4C00D21EB5 /* CalendarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

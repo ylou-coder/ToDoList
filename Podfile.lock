@@ -97,6 +97,7 @@ PODS:
     - gRPC-Core/Interface (= 1.21.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
+  - JTAppleCalendar (8.0.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -111,6 +112,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - JTAppleCalendar
   - SnapKit (~> 4.0.0)
   - SwiftLint
   - Swinject
@@ -132,6 +134,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - JTAppleCalendar
     - leveldb-library
     - nanopb
     - Protobuf
@@ -155,6 +158,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
+  JTAppleCalendar: 76ccdc5a8b236166293e50b190c5f2722c30cdcd
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
@@ -162,6 +166,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Swinject: f7f15a9672e99328c1f07f277091087917215700
 
-PODFILE CHECKSUM: 427a8a088de717c67a151c39cd98cd466d3b3b08
+PODFILE CHECKSUM: 50cbb53108466e7862e50213f4fa92ca9d773da5
 
 COCOAPODS: 1.6.1

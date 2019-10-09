@@ -1,10 +1,13 @@
 import UIKit
 import SnapKit
 import Firebase
+import JTAppleCalendar
 
 class ViewController: UIViewController {
     weak var collectionView: UICollectionView?
+    
     var db: Firestore!
+    //Quest which parts should be part of the ViewModel
     var tasks = [ToDoItem]()
     
     override func loadView() {
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
        let leftButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera, target: nil, action: nil)
        navigationItem.leftBarButtonItems = [leftButton]
        
-       let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.compose, target: nil, action: nil)
        navigationItem.rightBarButtonItems = [doneButton]
     }
     
@@ -69,7 +72,7 @@ class ViewController: UIViewController {
                                             // Quest is this the right way to do it?
                                             text: data["text"] as? String ?? "",
                                             userID: data["userID"] as? String ?? "",
-                                            isCompleted: data["isComplete"] as? Bool ?? false)
+                                            isCompleted: data["isCompleted"] as? Bool ?? false)
                         self.tasks.append(task)
                         self.collectionView?.reloadData()
                     }
@@ -107,6 +110,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func updateCheckbox(cell: UICollectionViewCell, isChecked: Bool) {
+        if let indexPath = collectionView?.indexPath(for: cell) {
+            var taskToUpdate = tasks[indexPath.item]
+            taskToUpdate.isCompleted = !taskToUpdate.isCompleted
+            db.collection("todoItems").document(taskToUpdate.id).updateData(["isCompleted": isChecked]){ err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
+    }
+    
 }
 
 //It also handles the creation and configuration of cells and supplementary views used by the collection view to display your data
@@ -119,6 +136,7 @@ extension ViewController: UICollectionViewDataSource {
         let taskCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! TaskCell
         taskCell.nameLabel.text = tasks[indexPath.item].text
         taskCell.viewController = self
+        taskCell.checkMark.isChecked = tasks[indexPath.item].isCompleted
         return taskCell
     }
     
@@ -129,9 +147,12 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let taskCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! TaskCell
-        taskCell.completed = !taskCell.completed
-        
+        collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+    }
+    
+    //Quest why is this padding not working?
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsetsMake(0,15,0,15)
     }
 }
 
@@ -140,7 +161,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 50)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
@@ -199,7 +219,6 @@ class TaskFooter: BaseCell {
 // UICollectionViewCell - task cells
 class TaskCell: BaseCell {
     var viewController: ViewController?
-    var completed: Bool = false
     
     let nameLabel: UILabel = {
         let label = UILabel()
@@ -213,14 +232,17 @@ class TaskCell: BaseCell {
         return button
     }()
     
-    override func setupViews() {
-        
+    let checkMark: CheckBox = {
         //checkmark set up
         let checkMark = CheckBox.init()
-        //Quest why so hard to center things?
-        checkMark.frame = CGRect(x:0, y:(self.frame.height - 22)/2, width: 22, height: 22)
         checkMark.style = .tick
         checkMark.borderStyle = .rounded
+        return checkMark
+    }()
+    
+    override func setupViews() {
+        //Quest why so hard to center things? Is this the correct way to add padding "x:15"
+        checkMark.frame = CGRect(x:0, y:(self.frame.height - 22)/2, width: 22, height: 22)
         checkMark.addTarget(self, action: #selector(onCheckBoxValueChange(_:)), for: .valueChanged)
         
         //delete icon set up
@@ -251,7 +273,7 @@ class TaskCell: BaseCell {
     }
     
     @objc func onCheckBoxValueChange(_ sender: CheckBox) {
-        print(sender.isChecked)
+        viewController?.updateCheckbox(cell: self, isChecked: sender.isChecked)
     }
 }
 
@@ -270,15 +292,3 @@ class BaseCell: UICollectionViewCell {
     }
 }
 
-// Create an extension to handle graphics
-extension ViewController {
-    func setUpTableView() {
-        let tableView = UITableView()
-        tableView.separatorInset = .zero
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
-        
-    }
-    
-    
-}
